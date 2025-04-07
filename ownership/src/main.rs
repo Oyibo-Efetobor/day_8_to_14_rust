@@ -11,6 +11,9 @@ fn main() {
 // s in calculate_length is not going to
 //be an owner but a reference to s1
 // and reference is proceeded by an ampersand sign & 
+
 fn calculate_length(s: &String) -> usize{
     s.len()
 }
+
+
