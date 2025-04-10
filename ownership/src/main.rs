@@ -16,3 +16,4 @@ fn calculate_length(s: &String) -> usize{
     s.len()
 }
 
+//bruh wen paragon?
