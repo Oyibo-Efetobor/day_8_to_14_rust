@@ -1,3 +1,6 @@
+//shadowing
+
 fn main() {
-    println!("Hello, world!");
+    //put this on pause
+    //off to create a game
 }
