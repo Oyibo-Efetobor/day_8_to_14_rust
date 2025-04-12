@@ -20,7 +20,16 @@ fn main() {
         println!("You guessed: {guess}");
 
         // parse the string to u32
-        let guess: u32 = guess.trim().parse().expect("Please type a number!"); 
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num, // if parsing is successful, assign the number to guess
+            // if parsing fails, print an error message and continue to the next iteration
+            // of the loop
+            Err(_) => {
+                println!("Please enter a number!");
+                continue; // continue to the next iteration of the loop
+            }
+        }; 
+
         // comparing the guess with the secret number
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
