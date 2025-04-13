@@ -10,7 +10,7 @@ fn main() {
         owner: String::from("Tobor.Dev"),
         balance: 0.55,
     };
-
+    println!(" ");
     println!("GM! Tobor.dev Welcome to the Crypto Bank!");
     loop {
     println!(" ");
@@ -68,10 +68,13 @@ struct CryptoAccount {
 
 impl CryptoAccount {
     fn deposit(&mut self, amount:f64) {
-        println!("Depositing {} USDC to {}'s account .....", amount, self.owner);
+        println!("Depositing {} USDC to {}'s account, please wait ⌛", amount, self.owner);
         thread::sleep(Duration::from_secs(2));
+        println!("Deposit successful! ✅");
+        
         println!(" ");
         self.balance += amount;
+        thread::sleep(Duration::from_secs(2));
 
     }
 
@@ -79,10 +82,12 @@ impl CryptoAccount {
         if amount > self.balance {
             println!("Insufficient funds! Cannot withdraw {} from {}'s account", amount, self.owner);
         } else {
-            println!("Withdrawing {} USDC from {}'s account", amount, self.owner);
+            println!("Withdrawing {} USDC from {}'s account, please wait ⌛", amount, self.owner);
             thread::sleep(Duration::from_secs(2));
+            println!("Withdrawal successful! ✅");
             println!(" ");
             self.balance -= amount;
+            thread::sleep(Duration::from_secs(2));
         }
 
     }
@@ -90,6 +95,9 @@ impl CryptoAccount {
     fn check_balance(&self) {
         println!(" ");
         thread::sleep(Duration::from_secs(2));
+        println!("Checking balance for {}'s account, please wait ⌛", self.owner);
+        thread::sleep(Duration::from_secs(2));
+        println!(" ");
         println!(" {} your balance is {} USDC", self.owner, self.balance);
     }
 }
