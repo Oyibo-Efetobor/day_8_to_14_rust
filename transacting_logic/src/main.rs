@@ -1,4 +1,9 @@
+// how to add timer in rust
+// use std::time::{Duration, Instant};
+
 use std::io;
+use std::thread;
+use std::time::Duration;
 
 fn main() {
     let mut account: CryptoAccount = CryptoAccount {
@@ -7,8 +12,15 @@ fn main() {
     };
 
     println!("GM! Tobor.dev Welcome to the Crypto Bank!");
-    println!("Would you like to Deposit (D), Withdraw (W) or check balance (B)");
+    loop {
+    println!(" ");
+    println!("Would you like to Deposit (D), Withdraw (W) , check balance (B) or Exit (E)?");
+    println!("Please enter D, W, B or E");
+    println!(" ");
 
+    
+
+    
     let mut user_input = String::new();  //mutable input
 
     io::stdin()
@@ -38,9 +50,15 @@ fn main() {
     } else if user_input == "b" {
         account.check_balance();
     } else {
-        println!("Invalid input! Please enter D, W or B.");
+        println!("EXITING");
     }
-    
+    if user_input == "e" {
+        break;
+    }
+}
+    println!(" ");
+    println!("Your final balance is {} USDC", account.balance);
+    println!("Have a great day!");
 }
 
 struct CryptoAccount {
@@ -50,21 +68,28 @@ struct CryptoAccount {
 
 impl CryptoAccount {
     fn deposit(&mut self, amount:f64) {
-        println!("Depositing {} to {}'s account", amount, self.owner);
+        println!("Depositing {} USDC to {}'s account .....", amount, self.owner);
+        thread::sleep(Duration::from_secs(2));
+        println!(" ");
         self.balance += amount;
+
     }
 
     fn withdraw(&mut self, amount:f64) {
         if amount > self.balance {
             println!("Insufficient funds! Cannot withdraw {} from {}'s account", amount, self.owner);
         } else {
-            println!("Withdrawing {} from {}'s account", amount, self.owner);
+            println!("Withdrawing {} USDC from {}'s account", amount, self.owner);
+            thread::sleep(Duration::from_secs(2));
+            println!(" ");
             self.balance -= amount;
         }
 
     }
 
     fn check_balance(&self) {
+        println!(" ");
+        thread::sleep(Duration::from_secs(2));
         println!(" {} your balance is {} USDC", self.owner, self.balance);
     }
 }
