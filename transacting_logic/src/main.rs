@@ -50,7 +50,9 @@ fn main() {
     } else if user_input == "b" {
         account.check_balance();
     } else {
-        println!("EXITING");
+        println!("EXITING.....");
+        thread::sleep(Duration::from_secs(2));
+        println!(" ");
     }
     if user_input == "e" {
         break;
@@ -99,5 +101,6 @@ impl CryptoAccount {
         thread::sleep(Duration::from_secs(2));
         println!(" ");
         println!(" {} your balance is {} USDC", self.owner, self.balance);
+        thread::sleep(Duration::from_secs(2));
     }
 }
