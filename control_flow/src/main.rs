@@ -84,3 +84,23 @@
 //     print!("BLSATOFF !!!")
 // }
 
+// fn main() {
+//     //looping through a collection with for
+//     let _a = [10, 20, 30, 40, 50];
+//     let mut index = 0;
+
+//     while index < 5 {
+//         println!("the value is: {}", _a[index]);
+
+//         index += 1;
+//     }
+
+// }
+
+fn main() {
+    //using rev
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!!")
+}
