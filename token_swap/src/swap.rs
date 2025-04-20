@@ -12,7 +12,7 @@ pub fn perform_swap(user: &mut User, from_token: &str, amount: f64) {
     }
 
     match from_token {
-        "tob" => {
+        "TOB" => {
             if user.tob_balance >= amount {
                 let received = amount * TOB_TO_SOL_RATE;
                 user.tob_balance -= amount;
@@ -25,7 +25,7 @@ pub fn perform_swap(user: &mut User, from_token: &str, amount: f64) {
                 println!("❌ Not enough TOB to swap.");
             }
         }
-        "BAR" => {
+        "SOL" => {
             if user.sol_balance >= amount {
                 let received = amount * SOL_TO_TOB_RATE;
                 user.sol_balance -= amount;
